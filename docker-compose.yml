@@ -1,0 +1,13 @@
+version: "3"
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - 8880:80
+    volumes:
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./www:/www
+  php:
+    build: ./php
+    volumes:
+      - ./www:/www
